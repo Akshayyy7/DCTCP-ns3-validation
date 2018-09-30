@@ -1,0 +1,2 @@
+# DCTCP-ns3-validation
+Validate the ns-3 implementation of Data Center TCP. Data Center TCP (DCTCP) is the most widely used TCP in Data Center Networks. It works by estimating the amount of congestion in the network and adjust its ​ cwnd accordingly. In this project, the aim is to validate ns-3 DCTCP implementation by comparing the results obtained from it to those obtained by simulating Linux DCTCP.
