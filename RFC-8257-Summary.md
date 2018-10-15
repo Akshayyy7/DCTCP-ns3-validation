@@ -8,7 +8,7 @@
 ## What does DCTCP do?
 * Extends ECN (Explicit Congestion Notification) processing to estimate fraction of bytes that encounter congestion rather than simply detecting that congestion occurred.
 * It then scales the TCP congestion window on the basis of this estimate.
-    ##### What is ECN?
+    ### What is ECN?
     Conventionally, TCP/IP networks signal congestion by dropping packets. ECN is an extension to TCP and IP which allows end-to-end notification of network congestion withoout dropping packets.
 
 
