@@ -26,7 +26,20 @@
    o  The sender computes a congestion estimate and reacts by reducing
       the TCP congestion window (cwnd) accordingly.
 
-*  The Layer 3 (L3) switches and routers in a data-center fabric
-   indicate congestion to the end nodes by setting the CE codepoint in
-   the IP header  
-*     
+* The Layer 3 (L3) switches and routers in a data-center fabric
+  indicate congestion to the end nodes by setting the CE codepoint in
+  the IP header   
+  
+* DCTCP introduces a new Boolean TCP state variable, DCTCP
+  Congestion Encountered (DCTCP.CE), which is initialized to false and
+  stored in the Transmission Control Block (TCB).  When sending an ACK,
+  the ECE flag MUST be set if and only if DCTCP.CE is true.  When
+  receiving packets, the CE codepoint MUST be processed as follows:
+
+  1.If the CE codepoint is set and DCTCP.CE is false, set DCTCP.CE to
+     true and send an immediate ACK.
+     
+  2.If the CE codepoint is not set and DCTCP.CE is true, set DCTCP.CE
+     to false and send an immediate ACK.
+     
+  3.Otherwise, ignore the CE codepoint.
